@@ -17,7 +17,7 @@ function Login() {
       <div className="mx-auto mt-10 flex min-h-[95vh] w-[70%] flex-col items-center space-y-16 xl:min-w-[45vw] xl:space-y-14">
         <div className="mx-auto flex w-[90%] items-center ">
           <h1 className="text-[1.5rem] font-bold uppercase text-[#e2386c] sm:text-[2rem]">
-            <a href="\">Hubio</a>
+            <a href="/">Hubio</a>
           </h1>
         </div>
         <button className="flex items-center justify-between rounded-full border bg-white px-[3vw] py-[2.5vw] text-sm drop-shadow-2xl sm:px-6 sm:py-4 sm:text-base">
@@ -59,13 +59,13 @@ function Login() {
           </form>
           <div className="flex w-[140%] justify-between sm:w-[120%] md:w-[90%] lg:w-[80%] xl:w-[90%]">
             <a
-              href="\join"
+              href="/join"
               className="text-[min(4vw,1.1rem)] text-gray-500 hover:text-black sm:text-base"
             >
               Register
             </a>
             <a
-              href="\ForgetPassword"
+              href="/ForgetPassword"
               className="text-[min(4vw,1.1rem)] text-gray-500 hover:text-black sm:text-base"
             >
               Forgot Password ?

@@ -1,6 +1,6 @@
 import Login from "./components/login";
 import Join from "./components/join";
-import study from "./components/study";
+import Study from "./components/study";
 import Space from "./components/space";
 import LandingPage from "./components/landingPage";
 import { useState, useEffect } from "react";
@@ -8,6 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Forgetpassword from "./components/forgetpassword";
 import MyCalendar from "./components/MyCalendar";
 import User from "./components/user";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ function App() {
       }, 800);
     };
   }, []);
-  let Component;
+  /*let Component;
   switch (window.location.pathname) {
     case "/login":
       Component = Login;
@@ -44,9 +45,9 @@ function App() {
     default:
       Component = LandingPage;
       break;
-  }
+  }*/
   return (
-    <div>
+    <>
       {isLoading ? (
         <ClipLoader
           className="absolute left-[45%] top-[45%]"
@@ -56,9 +57,18 @@ function App() {
           data-testid="loader"
         />
       ) : (
-        <Component />
+        <Routes>
+          <Route path="/" element={<LandingPage/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/join" element={<Join/>}/>
+          <Route path="/study" element={<Study/>}/>
+          <Route path="/space" element={<Space/>}/>
+          <Route path="/ForgetPassword" element={<Forgetpassword/>}/>
+          <Route path="/MyCalendar" element={<MyCalendar/>}/>
+          <Route path="/User" element={<User/>}/>
+        </Routes>
       )}
-    </div>
+    </>
   );
 }
 
