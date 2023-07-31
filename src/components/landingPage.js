@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function LandingPage() {
   useEffect(() => {
     document.title = "Hubio";
@@ -9,14 +10,14 @@ function LandingPage() {
     <section className="max-h-[100vh] overflow-hidden text-white">
       <div className="mx-auto flex items-center justify-between bg-transparent px-14 py-10">
         <h1 className="z-[100000] mx-auto text-[2rem] font-bold uppercase text-white sm:ml-0">
-          <a href="/">Hubio</a>
+          <Link to="/">Hubio</Link>
         </h1>
         <nav className="z-[100000] hidden space-x-4 sm:flex">
           <button className="h-12 w-24 rounded-xl border border-white bg-[#51c9ff] text-base text-white drop-shadow-2xl">
-            <a href="/join">Join Us</a>
+            <Link to="/join">Join Us</Link>
           </button>
           <button className="h-12 w-24 rounded-xl bg-white text-[#51c9ff] drop-shadow-2xl">
-            <a href="/login">Login</a>
+            <Link to="/login">Login</Link>
           </button>
         </nav>
       </div>
@@ -36,7 +37,7 @@ function LandingPage() {
       <div className="relative flex">
         <div className="relative h-[80vh] w-1/2">
           <button className="absolute right-[7%] top-[43%] rounded-lg border border-white p-3 text-lg transition-colors hover:bg-white hover:text-[#ff5f5f] focus:bg-white focus:text-[#ff5f5f] sm:right-[15%] sm:top-[20%] sm:px-5 sm:py-3 sm:text-xl lg:right-[8%] lg:py-4 lg:text-2xl lg:font-light">
-            <a href="/study">Hubio Study</a>
+            <Link to="/study">Hubio Study</Link>
           </button>
           <img
             src="https://hubio-dev.web.app/left%20brain%20shadow.307bc994.webp"
@@ -51,7 +52,7 @@ function LandingPage() {
         </div>
         <div className="relative h-[80vh] w-1/2">
           <button className="absolute left-[7%] top-[43%] rounded-lg border border-white bg-white p-3 text-lg text-[#51c9ff] transition-colors hover:bg-transparent hover:text-white focus:bg-transparent focus:text-white sm:left-[15%] sm:top-[20%] sm:px-5 sm:py-3 sm:text-xl lg:left-[8%] lg:py-4 lg:text-2xl lg:font-light">
-            <a href="/space">Hubio Space</a>
+            <Link to="/space">Hubio Space</Link>
           </button>
           <img
             src="https://hubio-dev.web.app/Right%20Brain%20shadow.25b4c85c.webp"

@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [isClicked1, setIsClicked1] = useState(false);
@@ -58,18 +59,18 @@ function Login() {
             />
           </form>
           <div className="flex w-[140%] justify-between sm:w-[120%] md:w-[90%] lg:w-[80%] xl:w-[90%]">
-            <a
-              href="/join"
+            <Link
+              to="/join"
               className="text-[min(4vw,1.1rem)] text-gray-500 hover:text-black sm:text-base"
             >
               Register
-            </a>
-            <a
-              href="/ForgetPassword"
+            </Link>
+            <Link
+              to="/ForgetPassword"
               className="text-[min(4vw,1.1rem)] text-gray-500 hover:text-black sm:text-base"
             >
               Forgot Password ?
-            </a>
+            </Link>
           </div>
           <button
             type="submit"

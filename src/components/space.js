@@ -3,6 +3,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FisrstSpaceSlider from "./FisrstSpaceSlider";
 import SecondSpaceSlider from "./SecondSpaceSlider";
 import ThirdSpaceSwiper from "./ThirdSpaceSwiper";
+import { Link } from "react-router-dom";
 
 function Space() {
   const Info = [
@@ -68,14 +69,14 @@ function Space() {
       >
         <div className="mx-auto -mb-8 flex items-center justify-between px-14 pt-8 sm:py-10 ">
           <h1 className="z-[100] mx-auto text-[2rem] font-bold uppercase text-white sm:ml-0">
-            <a href="/">Hubio</a>
+            <Link to="/">Hubio</Link>
           </h1>
           <nav className="z-[100] hidden space-x-4 sm:flex">
             <button className="h-12 w-24 rounded-xl border border-white bg-[#51c9ff] text-base text-white drop-shadow-2xl">
-              <a href="/join">Join Us</a>
+              <Link to="/join">Join Us</Link>
             </button>
             <button className="h-12 w-24 rounded-xl bg-white text-blue-500 drop-shadow-2xl">
-              <a href="/login">Login</a>
+              <Link to="/login">Login</Link>
             </button>
           </nav>
         </div>
@@ -136,21 +137,21 @@ function Space() {
           <div className="relative h-[50vh] bg-[url('https://hubio-dev.web.app/20211204_124934.898c2d47.webp')] bg-cover bg-bottom before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgb(0,0,0,0.5)] sm:h-[70vh] md:h-[80vh] lg:h-[100vh]">
             <div className="relative mx-auto flex items-center justify-between px-10 py-12 sm:pb-2 lg:px-14">
               <h1 className="mx-auto text-[2rem] font-bold uppercase text-white sm:-ml-1">
-                <a href="/">Hubio</a>
+                <Link to="/">Hubio</Link>
               </h1>
               <nav className="hidden items-center sm:flex sm:flex-row-reverse">
                 <div className="ml-3 flex items-center space-x-3 text-sm md:ml-10 md:space-x-5 md:text-base">
                   <button className="h-10 w-20 rounded-xl bg-[#51c9ff] text-base text-white drop-shadow-2xl md:h-12 md:w-24">
-                    <a href="/join">Join Us</a>
+                    <Link to="/join">Join Us</Link>
                   </button>
                   <button className="h-10 w-20 rounded-xl bg-white text-[#51c9ff] drop-shadow-2xl md:h-12 md:w-24">
-                    <a href="/login">Login</a>
+                    <Link to="/login">Login</Link>
                   </button>
                 </div>
                 <div className="flex space-x-3 text-sm text-white md:space-x-5 md:text-base">
-                  <a href="/">Contact Us</a>
+                  <Link to="/">Contact Us</Link>
                   <button onclick={scrollToAboutUs}>About Us</button>
-                  <a href="/">Pricing</a>
+                  <Link to="/">Pricing</Link>
                 </div>
               </nav>
             </div>
@@ -216,10 +217,10 @@ function Space() {
         </section>
         <div className='z-100 mx-auto my-16 flex h-14 w-64 cursor-pointer flex-row-reverse justify-between rounded-2xl bg-gradient-to-b from-blue-500 to-[#51c9ff] font-["Lato"] text-xl sm:w-72'>
           <button className="my-auto mr-1 h-[90%] w-[50%] rounded-xl bg-white px-2 text-blue-600">
-            <a href="/space">Hubio Space</a>
+            <Link to="/space">Hubio Space</Link>
           </button>
           <button className="mx-auto text-white">
-            <a href="/study">Hubio Study</a>
+            <Link to="/study">Hubio Study</Link>
           </button>
         </div>
         <h3 className="mx-auto mb-10 text-center text-3xl font-medium">
@@ -416,7 +417,7 @@ function Space() {
               Or if you're interested in a study booster
             </h1>
             <button className="self-center rounded-lg bg-[rgb(39,137,224)] px-5 py-3 text-base text-white drop-shadow-2xl sm:self-start ">
-              <a href="/join">Get Started</a>
+              <Link to="/join">Get Started</Link>
             </button>
           </div>
         </div>

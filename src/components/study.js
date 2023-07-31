@@ -6,6 +6,7 @@ import Cards from "./Cards";
 import Wave from "../svgs/Wave";
 import brain from "../images/Math.2a9c3ce8 (1) (3).webp";
 import Footer from "./footer";
+import { Link } from "react-router-dom";
 
 function Study() {
   const elementRef = useRef(null);
@@ -119,14 +120,14 @@ function Study() {
               className="absolute -top-[40%] left-0 z-[-1] min-w-[90vw] opacity-30 "
             />
             <h1 className="mx-auto text-[2rem] font-bold uppercase text-[#e2386c] sm:ml-0">
-              <a href="/">Hubio</a>
+              <Link to="/">Hubio</Link>
             </h1>
             <nav className="hidden space-x-4 sm:flex">
               <button className="h-12 w-24 rounded-xl bg-[#ff3b4f] text-base text-white drop-shadow-2xl">
-                <a href="/join">Join Us</a>
+                <Link to="/join">Join Us</Link>
               </button>
               <button className="h-12 w-24 rounded-xl bg-white text-[#ff3b4f] drop-shadow-2xl">
-                <a href="/login">Login</a>
+                <Link to="/login">Login</Link>
               </button>
             </nav>
           </div>
@@ -166,11 +167,11 @@ function Study() {
               <p className="mb-4 max-w-[80vw] text-2xl font-light lg:mb-6 lg:max-w-[75%] lg:leading-[2.5rem]">
                 We are crafting the ultimate productivity booster for students.
               </p>
-              <a href="/join" className="cursor-pointer">
+              <Link to="/join" className="cursor-pointer">
                 <button className="rounded-2xl bg-[#ff254c] px-6 py-3 text-xl text-white">
                   Get Started
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -389,7 +390,7 @@ function Study() {
                 if you're interested in a study booster then
               </h1>
               <button className="self-center rounded-xl bg-[#ff254c] px-1 py-2 text-lg text-white drop-shadow-2xl sm:self-start ">
-                <a href="/join">Let's get Started</a>
+                <Link to="/join">Let's get Started</Link>
               </button>
             </div>
           </div>

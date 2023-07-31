@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Input from "./Input";
 import OutsideClickHandler from "react-outside-click-handler";
+import { Link } from "react-router-dom";
 function Join() {
   const [showTerms, setShowTerms] = useState(false);
   let style = {
@@ -218,15 +219,15 @@ function Join() {
         <div className="mx-auto mt-10 flex w-[95%] flex-col items-center space-y-16 xl:min-w-[50vw] xl:space-y-7">
           <div className="mx-auto flex w-[90%] items-center justify-between ">
             <h1 className="text-[1.5rem] font-bold uppercase text-[#e2386c] sm:text-[2rem]">
-              <a href="\">Hubio</a>
+              <Link to="/">Hubio</Link>
             </h1>
             <div className="flex max-w-[75%] flex-col items-center space-x-5 sm:flex-row">
               <p className="mx-2 text-center text-xs text-[rgba(65,49,49,.742)] sm:text-base">
                 You already have an account ?
               </p>
-              <a href="\login" className="text-center text-xs font-semibold text-[rgba(237,20,90,.9)] sm:text-base">
+              <Link to="/login" className="text-center text-xs font-semibold text-[rgba(237,20,90,.9)] sm:text-base">
                 Login
-              </a>
+              </Link>
             </div>
           </div>
           <button className="flex items-center justify-between rounded-full border bg-white px-5 py-3 drop-shadow-2xl sm:px-6 sm:py-4">
