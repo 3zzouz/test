@@ -1,23 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./components/login";
+import Join from "./components/join";
+import study from "./components/study";
+import Space from "./components/space";
+import LandingPage from "./components/landingPage";
+import { useState, useEffect } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+import Forgetpassword from "./components/forgetpassword";
+import MyCalendar from "./components/MyCalendar";
+import User from "./components/user";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    window.onload = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 800);
+    };
+  }, []);
+  let Component;
+  switch (window.location.pathname) {
+    case "/login":
+      Component = Login;
+      break;
+    case "/join":
+      Component = Join;
+      break;
+    case "/study":
+      Component = study;
+      break;
+    case "/space":
+      Component = Space;
+      break;
+    case "/ForgetPassword":
+      Component = Forgetpassword;
+      break;
+    case "/MyCalendar":
+      Component = MyCalendar;
+      break;
+    case "/User":
+      Component = User;
+      break;
+    default:
+      Component = LandingPage;
+      break;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isLoading ? (
+        <ClipLoader
+          className="absolute left-[45%] top-[45%]"
+          color="#ff5f5f"
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      ) : (
+        <Component />
+      )}
     </div>
   );
 }
