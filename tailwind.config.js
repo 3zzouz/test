@@ -69,6 +69,10 @@ module.exports = {
             transform: "rotate(360deg)",
           },
         },
+        barappear: {
+          "0%":{width:"15px"},
+          "100%":{width:"100%"},
+        },
       },
       animation: {
         float2: "float 2s ease-in-out infinite",
@@ -76,6 +80,7 @@ module.exports = {
         float4: "float 4s ease-in-out infinite",
         fadeout: "fadeout 1s ease-in-out 1",
         rotation: "rotateAnimation 4s linear infinite",
+        barappear:"barappear 5s ease-in-out 1"
       },
       backgroundImage: {
         radialgradient:

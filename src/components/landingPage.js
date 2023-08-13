@@ -5,7 +5,9 @@ function LandingPage() {
   useEffect(() => {
     document.title = "Hubio";
   }, []);
-  console.log(window.location.pathname);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="max-h-[100vh] overflow-hidden text-white">
       <div className="mx-auto flex items-center justify-between bg-transparent px-14 py-10">

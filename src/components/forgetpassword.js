@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 function Forgetpassword() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [isClicked, setIsClicked] = useState(false);
   return (
     <div className="h-[100vh] w-[100vw] sm:overflow-hidden">

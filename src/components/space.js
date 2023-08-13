@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FisrstSpaceSlider from "./FisrstSpaceSlider";
 import SecondSpaceSlider from "./SecondSpaceSlider";
 import ThirdSpaceSwiper from "./ThirdSpaceSwiper";
 import { Link } from "react-router-dom";
-
+import { Link as Lien } from "react-scroll";
 function Space() {
   const Info = [
     {
@@ -20,11 +20,37 @@ function Space() {
       title: "Coffee & Sandwich Bar",
     },
   ];
-  const elementRef = useRef(null);
-  const scrollToAboutUs = () => {
-    const aboutUsSection = document.getElementById("aboutus");
-    aboutUsSection.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const [isInView, setIsInView] = useState(false);
+  const handleIntersection = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+      }
+    });
   };
+  var loadingFinalWidth = 100;
+  if (window.innerWidth >= 768) loadingFinalWidth = 176;
+  const loadingInitialWidth = 15;
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      threshold: 1,
+    });
+
+    const targetElement = document.querySelector(".loading-bar");
+    if (targetElement) {
+      observer.observe(targetElement);
+    }
+
+    // Cleanup the observer
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+  const elementRef = useRef(null);
   useEffect(() => {
     const options = {
       root: null,
@@ -132,14 +158,14 @@ function Space() {
           </div>
         </div>
       </section>
-      <main className="">
+      <main>
         <section className="relative">
           <div className="relative h-[50vh] bg-[url('https://hubio-dev.web.app/20211204_124934.898c2d47.webp')] bg-cover bg-bottom before:absolute before:left-0 before:top-0 before:h-full before:w-full before:bg-[rgb(0,0,0,0.5)] sm:h-[70vh] md:h-[80vh] lg:h-[100vh]">
             <div className="relative mx-auto flex items-center justify-between px-10 py-12 sm:pb-2 lg:px-14">
               <h1 className="mx-auto text-[2rem] font-bold uppercase text-white sm:-ml-1">
                 <Link to="/">Hubio</Link>
               </h1>
-              <nav className="hidden items-center sm:flex sm:flex-row-reverse">
+              <nav className="hidden w-full items-center sm:flex sm:flex-row-reverse">
                 <div className="ml-3 flex items-center space-x-3 text-sm md:ml-10 md:space-x-5 md:text-base">
                   <button className="h-10 w-20 rounded-xl bg-[#51c9ff] text-base text-white drop-shadow-2xl md:h-12 md:w-24">
                     <Link to="/join">Join Us</Link>
@@ -149,16 +175,44 @@ function Space() {
                   </button>
                 </div>
                 <div className="flex space-x-3 text-sm text-white md:space-x-5 md:text-base">
-                  <Link to="/">Contact Us</Link>
-                  <button onclick={scrollToAboutUs}>About Us</button>
-                  <Link to="/">Pricing</Link>
+                  <Lien
+                    to="contactus"
+                    className="cursor-pointer"
+                    smooth={true}
+                    duration={500}
+                  >
+                    Contact Us
+                  </Lien>
+                  <Lien
+                    to="aboutus"
+                    className="cursor-pointer"
+                    smooth={true}
+                    duration={1500}
+                  >
+                    About Us
+                  </Lien>
+                  <Lien
+                    to="pricing"
+                    className="cursor-pointer"
+                    smooth={true}
+                    duration={1700}
+                  >
+                    Pricing
+                  </Lien>
                 </div>
               </nav>
             </div>
             <h1 className="relative mx-auto h-1/4 text-center text-2xl font-bold text-white sm:text-4xl md:w-1/2 md:text-5xl lg:mt-4 lg:text-6xl">
               Find Your Cozy StudySpot
             </h1>
-            <div className="relative mx-auto -mt-3 h-2 w-32 bg-white sm:mt-0 md:mt-6 md:w-44"></div>
+            <div
+              className={`loading-bar relative ${
+                isInView ? "animate-barappear" : ""
+              } mx-auto -mt-3 h-2 bg-white sm:mt-0 md:mt-6`}
+              style={{
+                maxWidth: isInView ? loadingFinalWidth : loadingInitialWidth,
+              }}
+            ></div>
             <svg
               className="xs:block absolute bottom-0 hidden w-[100%] "
               xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +233,7 @@ function Space() {
               <img
                 src="https://hubio-dev.web.app/Space%20Avatar.0de19aa9.webp"
                 alt="man"
-                className="mx-auto h-full"
+                className="mx-auto h-auto"
               />
               <img
                 src="https://hubio-dev.web.app/Layer%204.f0010457.webp"
@@ -422,7 +476,7 @@ function Space() {
           </div>
         </div>
       </div>
-      <div className="relative">
+      <div className="relative" id="pricing">
         <img
           src="https://hubio-dev.web.app/Shadow%20(1).cb406059.webp"
           alt="blue shadow"
@@ -438,9 +492,12 @@ function Space() {
         </h3>
         <ThirdSpaceSwiper />
       </div>
-      <footer className="mx-auto my-[5vw] flex w-[90%] flex-wrap items-baseline justify-between space-y-10 text-xs font-medium leading-relaxed">
+      <footer
+        id="contactus"
+        className="mx-auto my-[5vw] flex w-[90%] flex-wrap items-baseline justify-between space-y-10 text-xs font-medium leading-relaxed"
+      >
         <div className="space-y-5 sm:w-[30%]">
-          <h2 className="mx-auto text-[1.5rem] xl:text-[2vw] font-bold uppercase text-[#e2386c] sm:ml-0">
+          <h2 className="mx-auto text-[1.5rem] font-bold uppercase text-[#e2386c] sm:ml-0 xl:text-[2vw]">
             Hubio
           </h2>
           <p className="font-normal xl:text-[1.3vw]">
@@ -451,20 +508,26 @@ function Space() {
             contact@hubio.tn
           </p>
         </div>
-        <div className="flex justify-between w-full xs:w-fit xl:w-[40%] xs:space-x-[2vw]">
+        <div className="xs:w-fit xs:space-x-[2vw] flex w-full justify-between xl:w-[40%]">
           <div className="w-[28%] space-y-5">
-            <h2 className="text-[1.1rem] xl:text-[1.3vw] font-medium">About Us</h2>
+            <h2 className="text-[1.1rem] font-medium xl:text-[1.3vw]">
+              About Us
+            </h2>
             <p className="font-normal xl:text-[1vw]">HUBIO Study</p>
           </div>
           <div className="w-[28%] space-y-5">
-            <h2 className="text-[1.1rem] xl:text-[1.3vw] font-medium">Quick Links</h2>
+            <h2 className="text-[1.1rem] font-medium xl:text-[1.3vw]">
+              Quick Links
+            </h2>
             <p className="font-normal xl:text-[1vw]">
               Pricing <br />
               Workplace
             </p>
           </div>
           <div className="w-min space-y-5">
-            <h2 className="text-[1.1rem] xl:text-[1.3vw] font-medium">Address</h2>
+            <h2 className="text-[1.1rem] font-medium xl:text-[1.3vw]">
+              Address
+            </h2>
             <p className="font-normal xl:text-[1vw]">
               03, Rue habib bougatfa,Bab Saadoun,Tunis,
               <br />

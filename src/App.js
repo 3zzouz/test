@@ -3,7 +3,7 @@ import Join from "./components/join";
 import Study from "./components/study";
 import Space from "./components/space";
 import LandingPage from "./components/landingPage";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import Forgetpassword from "./components/forgetpassword";
 import MyCalendar from "./components/MyCalendar";
@@ -11,14 +11,10 @@ import User from "./components/user";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    window.onload = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 800);
-    };
-  }, []);
+  const [showLoading, setIsShowLoading] = useState(true);
+  setTimeout(() => {
+    setIsShowLoading(false);
+  }, 900);
   /*let Component;
   switch (window.location.pathname) {
     case "/login":
@@ -48,9 +44,9 @@ function App() {
   }*/
   return (
     <>
-      {isLoading ? (
+      {showLoading ? (
         <ClipLoader
-          className="absolute left-[45%] top-[45%]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           color="#ff5f5f"
           size={50}
           aria-label="Loading Spinner"
@@ -58,14 +54,14 @@ function App() {
         />
       ) : (
         <Routes>
-          <Route path="/" element={<LandingPage/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/join" element={<Join/>}/>
-          <Route path="/study" element={<Study/>}/>
-          <Route path="/space" element={<Space/>}/>
-          <Route path="/ForgetPassword" element={<Forgetpassword/>}/>
-          <Route path="/MyCalendar" element={<MyCalendar/>}/>
-          <Route path="/User" element={<User/>}/>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/study" element={<Study />} />
+          <Route path="/space" element={<Space />} />
+          <Route path="/ForgetPassword" element={<Forgetpassword />} />
+          <Route path="/MyCalendar" element={<MyCalendar />} />
+          <Route path="/User" element={<User />} />
         </Routes>
       )}
     </>

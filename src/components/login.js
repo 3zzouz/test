@@ -8,6 +8,9 @@ function Login() {
   useEffect(() => {
     document.title = "Log In";
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex flex-row pb-10 xl:max-h-[100vh]  xl:overflow-hidden">
       <img

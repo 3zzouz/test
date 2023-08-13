@@ -10,7 +10,9 @@ import { Link } from "react-router-dom";
 
 function Study() {
   const elementRef = useRef(null);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const options = {
       root: null,

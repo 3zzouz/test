@@ -4,6 +4,9 @@ import Input from "./Input";
 import OutsideClickHandler from "react-outside-click-handler";
 import { Link } from "react-router-dom";
 function Join() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [showTerms, setShowTerms] = useState(false);
   let style = {
     opacity: showTerms ? "0.5" : "0",

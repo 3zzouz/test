@@ -75,7 +75,7 @@ const ThirdSpaceSwiper = () => (
     showDots={true}
     arrows={false}
     itemClass="w-fit"
-    className="mx-auto h-[37rem] 2xl:h-[45rem] w-[90%]"
+    className="mx-auto h-[37rem] 2xl:h-[45rem] w-[90%] pb-5"
     sliderClass="h-[75%] xs:h-[80%] md:h-[85%] 2xl:h-[88%]"
     
   >
@@ -95,14 +95,14 @@ const ThirdSpaceSwiper = () => (
           <img
             src={url}
             alt=""
-            className="absolute left-[30%] top-[2%] h-auto w-[20vw] max-w-[120px] rotate-[200deg] opacity-40 xs:left-[20%] lg:left-[25%] xl:left-[37%]"
+            className="absolute left-[30%] top-[2%] h-auto w-[20vw] max-w-[120px] rotate-[200deg] opacity-40 xs:left-[20%] lg:left-[25%] lg:top-[-1%] "
           />
           <h3 className="z-50 w-full text-2xl font-bold lg:text-[2.5vw]">
             {el.title}
           </h3>
           <div className="flex flex-col space-y-5 ">
             <div className="z-50 h-1 w-10 rounded-[1vw] bg-[#b7b7b7] md:h-[0.25vw] md:w-[3.5vw] 2xl:my-4"></div>
-            <p className="z-50 w-full text-sm sm:text-base 2xl:text-3xl">{el.des}</p>
+            <p className="z-50 w-full text-sm sm:text-base 2xl:text-2xl">{el.des}</p>
           </div>
             <h3 className="xs:text-[max(5vw,_3rem)] lg:text-[min(5vw,_6rem)] mx-auto w-fit before:xs:text-[max(1.5vw,_1rem)] absolute bottom-4 xs:bottom-8 left-0 right-0 z-50 text-5xl font-semibold before:absolute before:-right-[1.5rem] before:-top-[1rem] before:text-base before:text-[#6499d3] before:content-['TND']">
               {el.price}
